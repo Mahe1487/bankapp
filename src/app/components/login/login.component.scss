@@ -1,0 +1,23 @@
+.mystyles{
+    border:solid;
+    border-color: lightcyan;
+    border-radius: 10px;
+    width: 400px;
+    padding: 30px;
+    position: absolute;
+    top: 16%;
+    left: 58%;
+    background: hsla(205, 40%, 30%,1);
+    background: linear-gradient(90deg,hsla(205, 40%, 30%,1) 0%,hsla(260,29%,40%,100%)) ;
+
+}
+.bgs{
+    background:hsla(130, 32%, 10%, 1);
+    background: linear-gradient(75deg,rgb(41, 6, 216) 0%,rgb(106, 127, 219));
+}
+img{
+    margin-left: 50px;
+    height: 60px;
+    width: 60px;
+}
+

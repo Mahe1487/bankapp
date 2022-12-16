@@ -1,0 +1,253 @@
+<div class="container-fluid overflow-auto">
+    <form method="post" [formGroup]="formRegister" (submit)="SubmitForm(formRegister.value)">
+        <div class="mystyles">
+
+            <div class="row">
+                <div>
+                    <h1 style="text-align: center;">Registration Form</h1>
+                </div>
+                <p></p>
+                <div class="col-6">
+                    <table>
+                        <tr>
+                            <th>
+                                <h4>First Name</h4>
+                            </th>
+                            <td class="p-2"><input formControlName="firstName" name="firstName" id="firstName"
+                                    type="text" class="form-control" placeholder="First Name"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['firstName'].invalid && f['firstName'].touched">
+                                <span *ngIf="f['firstName'].getError('required')!=null">First Name Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Last Name</h4>
+                            </th>
+                            <td class="p-2"><input type="text" name="lastName" id="lastName" formControlName="lastName"
+                                    class="form-control" placeholder="Last Name"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['lastName'].invalid && f['lastName'].touched">
+                                <span *ngIf="f['lastName'].getError('required')!=null">Last Name Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Father Name</h4>
+                            </th>
+                            <td class="p-2"><input name="fatherName" id="fatherName" type="text"
+                                    formControlName="fatherName" class="form-control" placeholder="Father Name"></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="color: red;" *ngIf="f['fatherName'].invalid && f['fatherName'].touched">
+                                <span *ngIf="f['fatherName'].getError('required')!=null">Father Name Required</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <h4>Mother Name</h4>
+                            </th>
+                            <td class="p-2"><input type="text" name="motherName" id="motherName"
+                                    formControlName="motherName" class="form-control" placeholder="Mother Name"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['motherName'].invalid && f['motherName'].touched">
+                                <span *ngIf="f['motherName'].getError('required')!=null">Mother Name Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Password</h4>
+                            </th>
+                            <td class="p-2"><input type="password" id="password" formControlName="password"
+                                    name="password" class="form-control" placeholder="Password"></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="color: red;" *ngIf="f['password'].invalid && f['password'].touched">
+                                <span *ngIf="f['password'].getError('required')!=null">Password Required</span>
+                                <span *ngIf="f['password'].getError('pattern')!=null">Password Contains 1 Upper Case
+                                    letter 1 Lower Case Letter 1 Number 1 Special Charecter and Length Between 8
+                                    Charecter to 25 Charecter
+                                </span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Conform Password</h4>
+                            </th>
+                            <td class="p-2"><input type="password" id="conformPassword"
+                                    formControlName="conformPassword" name="conformPassword" class="form-control"
+                                    placeholder="Conform Password"></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="color: red;"
+                                *ngIf="f['conformPassword'].invalid && f['conformPassword'].touched">
+                                <span *ngIf="f['conformPassword'].getError('Mustmatch')!=null">Password Mismatch</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Permanent Address</h4>&emsp;
+                            </th>
+                            <td class="p-2"><input type="text" name="permanentAddress" style="height: 70px;"
+                                    id="permanentAddress" class="form-control" formControlName="permanentAddress"
+                                    placeholder="Address" maxlength="1000"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;"
+                                *ngIf="f['permanentAddress'].invalid && f['permanentAddress'].touched">
+                                <span *ngIf="f['permanentAddress'].getError('required')!=null">Permanent Address
+                                    Required</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <table>
+                        <tr>
+                            <th>
+                                <h4>Date Of Birth</h4>
+                            </th>
+                            <td class="p-2"><input type="date" name="dob" id="dob" formControlName="dob"
+                                    class="form-control"></td>
+
+                        </tr>
+                        <tr *ngIf="f['dob'].invalid && f['dob'].touched">
+                            <td style="color: red;">
+                                <span *ngIf="f['dob'].getError('required')!=null">Date Of Birth Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Gender</h4>
+                            </th>
+                            <td style="width: 15px;"><input style="width: 15px;" type="radio" name="radio" id="radio"
+                                    formControlName="radio" value="Male">Male
+                                <input style="width: 15px;" type="radio" name="radio" id="radio" formControlName="radio"
+                                    value="Female">Female
+                            </td>
+                            <!-- <td>Male</td> -->
+                            <!-- <td><input style="width: 15px;" type="radio" name="radio" id="radio" formControlName="radio" value="Female">Female</td> -->
+                            <!-- <td>Female</td>  -->
+                        </tr>
+                        <tr>
+
+                            <td style="color: red;" *ngIf="f['radio'].invalid && f['radio'].touched">
+                                <span *ngIf="f['radio'].getError('required')!=null">Plese select Gendrer</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <h4>Email</h4>
+                            </th>
+                            <td class="p-2"><input type="email" required name="email" id="email" formControlName="email"
+                                    class="form-control" placeholder="Email"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['email'].invalid && f['email'].touched">
+                                <span *ngIf="f['email'].getError('required')!=null">Email Id Required</span>
+                                <span *ngIf="f['email'].getError('email')!=null">invalid Email Id</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Mobile</h4>
+                            </th>
+                            <td class="p-2"><input type="text" name="mobile" id="mobile" maxlength="10" minlength="10"
+                                    class="form-control" formControlName="mobile" placeholder="Mobile Number"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['mobile'].invalid && f['mobile'].touched">
+                                <span *ngIf="f['mobile'].getError('required')!=null">Mobile Number Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Aadhar Card</h4>
+                            </th>
+                            <td class="p-2"><input type="text" name="aadhar" id="aadhar" maxlength="12" minlength="12"
+                                    class="form-control" formControlName="aadhar" placeholder="Aadhar">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['aadhar'].invalid && f['aadhar'].touched">
+                                <span *ngIf="f['aadhar'].getError('required')!=null">Aadhar Card Number Required</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <h4>PAN Card</h4>
+                            </th>
+                            <td class="p-2"><input minlength="10" name="panCard" id="panCard" maxlength="10" type="text"
+                                    class="form-control" formControlName="panCard" placeholder="PAN Card Number"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['panCard'].invalid && f['panCard'].touched">
+                                <span *ngIf="f['panCard'].getError('required')!=null">PAN Card Required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Account Type</h4>
+                            </th>
+                            <td class="p-2">
+                                <select class="form-control" name="accountType" id="accountType" required
+                                    formControlName="accountType">
+                                    <option>Savings</option>
+                                    <option>Currrent</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['accountType'].invalid && f['accountType'].touched">
+                                <span *ngIf="f['accountType'].getError('required')!=null">Please Choose the Account
+                                    Type</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Agree Terms & Condetions</h4>&emsp;
+                            </th>
+                            <td class="p-2 ml-auto"><input type="checkbox" formControlName="terms" name="terms"
+                                    id="terms">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="color: red;" *ngIf="f['terms'].invalid && f['terms'].touched">
+                                <span *ngIf="f['terms'].getError('required')!=null">Accept Terms and Condetions</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-5">
+                    <button (click)="register()" [disabled]="formRegister.invalid" class="btn btn-warning w-10"
+                        type="submit">
+                        <h3>Register</h3>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

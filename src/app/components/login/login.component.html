@@ -1,0 +1,52 @@
+<div class="container header p-2" style="color:rgb(19, 2, 250)">
+    <h1><img src="../../../assets/sbi.png"> Online Banking</h1>
+</div>
+<div class="container-fluid bgs">
+    <h1 class="text-white p-4">Welcome To KMB Online Banking</h1>
+    <h2 class="text-white p-4">This site is safe and secure</h2>
+    <h3 class="text-white p-4">Never share your Password and OTP</h3>
+    <h4 class="text-white p-4">Bank Employee Never Ask Your Personal Information</h4>
+
+    <div class="d-flex justify-content-center align-items-center" style="height:53px;">
+        <form method="post" [formGroup]="formLogin" (submit)="SubmitForm(formLogin.value)">
+            <div class="mystyles">
+                <div style="background-color: lightgray;" class="d-flex justify-content-center align-items-center p-1 rounded-3">
+                    <h2 ><i class="bi bi-person-fill"></i>
+                        User Login
+                    </h2>
+                </div>
+                <div class="mt-3">
+                    <dl>
+                        <dt class="text-white">User Name <span style="color: red;">*</span></dt>
+                        <dd><input type="text" formControlName="userName" required class="form-control "
+                                placeholder="username"></dd>
+                        <dd><span style="color: rgb(255, 145, 0);">Your Email Id is your User Name</span></dd>
+                        <dd class="text-danger" *ngIf="userName.invalid && userName.touched">
+                            <span *ngIf="userName.errors?.['required']">User Name Required</span>
+                        </dd>
+                        <dt class="text-white">Password <span style="color: red;">*</span></dt>
+                        <dd><input type="password" formControlName="Password" required class="form-control"
+                                placeholder="password"> </dd>
+                        <dd class="text-danger" *ngIf="Password.invalid && Password.touched">
+                            <span *ngIf="Password.errors?.['required']">Password Required</span>
+                            <span *ngIf="Password.errors?.['pattern']">Password Contains 1 Upper Case 
+                                letter 1 Lower Case Letter 1 Number 1 Special Charecter and Length Must be 8
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="mt-5"><button (click)="getUser(userName,Password)" class="btn btn-primary w-100" routerLink="/welcome">Login</button>
+                    <p></p>
+                    <h6 class="text-white">New User 
+                        <a class="text-white" href="./register">Register</a> here
+                    </h6>
+                
+                </div>
+          
+            </div>
+        </form>
+    </div>
+    <div class="text-white p-5 ">
+        <h2>New User Register &nbsp;<button class="btn btn-outline-light" routerLink="/register">Register</button></h2>
+    </div>
+</div>

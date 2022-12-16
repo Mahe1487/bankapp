@@ -1,0 +1,19 @@
+.bgs{
+    background:hsla(130, 32%, 10%, 1);
+    background: linear-gradient(75deg,rgb(6, 209, 216) 0%,rgb(195, 219, 106));
+}
+img{
+    margin-left: 50px;
+    height: 60px;
+    width: 60px;
+}
+.card{
+    height: 300px;
+    width: 350px;
+}
+.card.c1{
+    margin-left: 50px;
+}
+.card.c2{
+    margin-right: 50px;
+}
