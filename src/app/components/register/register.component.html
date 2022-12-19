@@ -1,13 +1,11 @@
 <div class="container-fluid overflow-auto">
     <form method="post" [formGroup]="formRegister" (submit)="SubmitForm(formRegister.value)">
         <div class="mystyles">
-
             <div class="row">
                 <div>
                     <h1 style="text-align: center;">Registration Form</h1>
                 </div>
-                <p></p>
-                <div class="col-6">
+                <div class="col-7">
                     <table>
                         <tr>
                             <th>
@@ -71,15 +69,11 @@
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['password'].invalid && f['password'].touched">
-
-                            <td>
-                                <span *ngIf="f['password'].getError('required')!=null">Password Required</span>
-                                <span *ngIf="f['password'].getError('pattern')!=null">Password Contains 1 Upper Case
-                                    letter 1 Lower Case Letter 1 Number 1 Special Charecter and Length Between 8
-                                    Charecter to 25 Charecter
-                                </span>
-                            </td>
-
+                            <span *ngIf="f['password'].getError('required')!=null">Password Required</span>
+                            <span *ngIf="f['password'].getError('pattern')!=null">Password Contains 1 Upper Case
+                                letter 1 Lower Case Letter 1 Number 1 Special Charecter and Length Between 8
+                                Charecter to 25 Charecter
+                            </span>
                         </tr>
                         <tr>
                             <th>
@@ -113,7 +107,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <table>
                         <tr>
                             <th>
@@ -146,7 +140,7 @@
                         </tr>
                         <tr class="mycolor" *ngIf="f['gender'].invalid && f['gender'].touched">
                             <td>
-                                <span *ngIf="f['radio'].getError('required')!=null">Please Select Gender</span>
+                                <span *ngIf="f['gender'].getError('required')!=null">Please Select Gender</span>
                             </td>
                         </tr>
 
