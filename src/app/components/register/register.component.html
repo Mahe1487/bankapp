@@ -16,8 +16,8 @@
                             <td class="p-2"><input formControlName="firstName" name="firstName" id="firstName"
                                     type="text" class="form-control" placeholder="First Name"></td>
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['firstName'].invalid && f['firstName'].touched">
+                        <tr class="mycolor" *ngIf="f['firstName'].invalid && f['firstName'].touched">
+                            <td>
                                 <span *ngIf="f['firstName'].getError('required')!=null">First Name Required</span>
                             </td>
                         </tr>
@@ -29,8 +29,8 @@
                                     class="form-control" placeholder="Last Name"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['lastName'].invalid && f['lastName'].touched">
+                        <tr class="mycolor" *ngIf="f['lastName'].invalid && f['lastName'].touched">
+                            <td>
                                 <span *ngIf="f['lastName'].getError('required')!=null">Last Name Required</span>
                             </td>
                         </tr>
@@ -42,9 +42,9 @@
                                     formControlName="fatherName" class="form-control" placeholder="Father Name"></td>
 
                         </tr>
-                        <tr>
+                        <tr class="mycolor" *ngIf="f['fatherName'].invalid && f['fatherName'].touched">
 
-                            <td style="color: red;" *ngIf="f['fatherName'].invalid && f['fatherName'].touched">
+                            <td>
                                 <span *ngIf="f['fatherName'].getError('required')!=null">Father Name Required</span>
                             </td>
                         </tr>
@@ -57,8 +57,8 @@
                                     formControlName="motherName" class="form-control" placeholder="Mother Name"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['motherName'].invalid && f['motherName'].touched">
+                        <tr class="mycolor" *ngIf="f['motherName'].invalid && f['motherName'].touched">
+                            <td>
                                 <span *ngIf="f['motherName'].getError('required')!=null">Mother Name Required</span>
                             </td>
                         </tr>
@@ -70,9 +70,9 @@
                                     name="password" class="form-control" placeholder="Password"></td>
 
                         </tr>
-                        <tr>
+                        <tr class="mycolor" *ngIf="f['password'].invalid && f['password'].touched">
 
-                            <td style="color: red;" *ngIf="f['password'].invalid && f['password'].touched">
+                            <td>
                                 <span *ngIf="f['password'].getError('required')!=null">Password Required</span>
                                 <span *ngIf="f['password'].getError('pattern')!=null">Password Contains 1 Upper Case
                                     letter 1 Lower Case Letter 1 Number 1 Special Charecter and Length Between 8
@@ -90,10 +90,9 @@
                                     placeholder="Conform Password"></td>
 
                         </tr>
-                        <tr>
+                        <tr class="mycolor" *ngIf="f['conformPassword'].invalid && f['conformPassword'].touched">
 
-                            <td style="color: red;"
-                                *ngIf="f['conformPassword'].invalid && f['conformPassword'].touched">
+                            <td>
                                 <span *ngIf="f['conformPassword'].getError('Mustmatch')!=null">Password Mismatch</span>
                             </td>
                         </tr>
@@ -106,9 +105,8 @@
                                     placeholder="Address" maxlength="1000"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;"
-                                *ngIf="f['permanentAddress'].invalid && f['permanentAddress'].touched">
+                        <tr class="mycolor" *ngIf="f['permanentAddress'].invalid && f['permanentAddress'].touched">
+                            <td>
                                 <span *ngIf="f['permanentAddress'].getError('required')!=null">Permanent Address
                                     Required</span>
                             </td>
@@ -125,28 +123,30 @@
                                     class="form-control"></td>
 
                         </tr>
-                        <tr *ngIf="f['dob'].invalid && f['dob'].touched">
-                            <td style="color: red;">
+                        <tr class="mycolor" *ngIf="f['dob'].invalid && f['dob'].touched">
+                            <td>
                                 <span *ngIf="f['dob'].getError('required')!=null">Date Of Birth Required</span>
                             </td>
                         </tr>
+
                         <tr>
                             <th>
                                 <h4>Gender</h4>
                             </th>
-                            <td style="width: 15px;"><input style="width: 15px;" type="radio" name="radio" id="radio"
-                                    formControlName="radio" value="Male">Male
-                                <input style="width: 15px;" type="radio" name="radio" id="radio" formControlName="radio"
-                                    value="Female">Female
+                            <td>
+                                <input type="radio" [checked]="true" style="margin-left: 13px;" name="gender"
+                                    id="gender" formControlName="gender" value="Male"><label for="radio">
+                                    <h6>Male</h6>
+                                </label>
+                                <input type="radio" style="margin-left: 40px;" name="gender" id="gender"
+                                    formControlName="gender" value="Female"><label for="radio">
+                                    <h6>Female</h6>
+                                </label>
                             </td>
-                            <!-- <td>Male</td> -->
-                            <!-- <td><input style="width: 15px;" type="radio" name="radio" id="radio" formControlName="radio" value="Female">Female</td> -->
-                            <!-- <td>Female</td>  -->
                         </tr>
-                        <tr>
-
-                            <td style="color: red;" *ngIf="f['radio'].invalid && f['radio'].touched">
-                                <span *ngIf="f['radio'].getError('required')!=null">Plese select Gendrer</span>
+                        <tr class="mycolor" *ngIf="f['gender'].invalid && f['gender'].touched">
+                            <td>
+                                <span *ngIf="f['radio'].getError('required')!=null">Please Select Gender</span>
                             </td>
                         </tr>
 
@@ -158,8 +158,8 @@
                                     class="form-control" placeholder="Email"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['email'].invalid && f['email'].touched">
+                        <tr class="mycolor" *ngIf="f['email'].invalid && f['email'].touched">
+                            <td>
                                 <span *ngIf="f['email'].getError('required')!=null">Email Id Required</span>
                                 <span *ngIf="f['email'].getError('email')!=null">invalid Email Id</span>
                             </td>
@@ -168,12 +168,13 @@
                             <th>
                                 <h4>Mobile</h4>
                             </th>
-                            <td class="p-2"><input type="text" name="mobile" id="mobile" maxlength="10" minlength="10"
-                                    class="form-control" formControlName="mobile" placeholder="Mobile Number"></td>
+                            <td class="p-2"><input type="text" maxlength="10" minlength="10" name="mobile" id="mobile"
+                                    maxlength="10" minlength="10" class="form-control" formControlName="mobile"
+                                    placeholder="Mobile Number"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['mobile'].invalid && f['mobile'].touched">
+                        <tr class="mycolor" *ngIf="f['mobile'].invalid && f['mobile'].touched">
+                            <td>
                                 <span *ngIf="f['mobile'].getError('required')!=null">Mobile Number Required</span>
                             </td>
                         </tr>
@@ -181,13 +182,14 @@
                             <th>
                                 <h4>Aadhar Card</h4>
                             </th>
-                            <td class="p-2"><input type="text" name="aadhar" id="aadhar" maxlength="12" minlength="12"
-                                    class="form-control" formControlName="aadhar" placeholder="Aadhar">
+                            <td class="p-2"><input type="text" maxlength="12" minlength="12" name="aadhar" id="aadhar"
+                                    maxlength="12" minlength="12" class="form-control" formControlName="aadhar"
+                                    placeholder="Aadhar">
                             </td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['aadhar'].invalid && f['aadhar'].touched">
+                        <tr class="mycolor" *ngIf="f['aadhar'].invalid && f['aadhar'].touched">
+                            <td>
                                 <span *ngIf="f['aadhar'].getError('required')!=null">Aadhar Card Number Required</span>
                             </td>
                         </tr>
@@ -200,8 +202,8 @@
                                     class="form-control" formControlName="panCard" placeholder="PAN Card Number"></td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['panCard'].invalid && f['panCard'].touched">
+                        <tr class="mycolor" *ngIf="f['panCard'].invalid && f['panCard'].touched">
+                            <td>
                                 <span *ngIf="f['panCard'].getError('required')!=null">PAN Card Required</span>
                             </td>
                         </tr>
@@ -218,8 +220,8 @@
                             </td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['accountType'].invalid && f['accountType'].touched">
+                        <tr class="mycolor" *ngIf="f['accountType'].invalid && f['accountType'].touched">
+                            <td>
                                 <span *ngIf="f['accountType'].getError('required')!=null">Please Choose the Account
                                     Type</span>
                             </td>
@@ -233,8 +235,8 @@
                             </td>
 
                         </tr>
-                        <tr>
-                            <td style="color: red;" *ngIf="f['terms'].invalid && f['terms'].touched">
+                        <tr class="mycolor" *ngIf="f['terms'].invalid && f['terms'].touched">
+                            <td>
                                 <span *ngIf="f['terms'].getError('required')!=null">Accept Terms and Condetions</span>
                             </td>
                         </tr>

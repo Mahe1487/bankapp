@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       dob: new FormControl('', [Validators.required]),
-      //gender: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
       fatherName: new FormControl('', [Validators.required]),
       motherName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,25}'))]),
@@ -50,30 +50,39 @@ export class RegisterComponent implements OnInit {
     this.userModelObj.email = this.formRegister.value.email;
     this.userModelObj.mobile = this.formRegister.value.mobile;
     this.userModelObj.dob = this.formRegister.value.dob;
-    //this.userModelObj.gender = this.formRegister.value.gender;
+    this.userModelObj.gender = this.formRegister.value.gender;
     this.userModelObj.fatherName = this.formRegister.value.fatherName;
     this.userModelObj.motherName = this.formRegister.value.motherName;
     this.userModelObj.aadhar = this.formRegister.value.aadhar;
     this.userModelObj.panCard = this.formRegister.value.panCard;
     this.userModelObj.password = this.formRegister.value.password;
-    this.userModelObj.conformPassword = this.formRegister.value.conformPassword;
+    //this.userModelObj.conformPassword = this.formRegister.value.conformPassword;
     this.userModelObj.permanentAddress = this.formRegister.value.permanentAddress;
     this.userModelObj.accountType = this.formRegister.value.accountType;
     this.userModelObj.terms = this.formRegister.value.terms;
 
+    // this.jsonserver.register(this.userModelObj)
+    //   .subscribe((res: any) => {
+    //     alert("user add successfully!...");
+    //     let ref = document.getElementById("cancel")
+    //     ref?.click();
+    //     this.formRegister.reset();
+    //   }, (err: any) =>{
+    //     alert(err);
+    //   });
+      
+    //   // ,() => {
+    //   //     alert("somthing wrong !... plese check ")
+    //   //   }
     this.jsonserver.register(this.userModelObj)
-      .subscribe((res: any) => {
+      .subscribe(() => {
         alert("user add successfully!...");
         let ref = document.getElementById("cancel")
         ref?.click();
         this.formRegister.reset();
-      }, (err: any) =>{
-        alert(err);
-      });
-      
-      // ,() => {
-      //     alert("somthing wrong !... plese check ")
-      //   })
+      },() => {
+           alert("somthing wrong !... plese check ")
+         })
   }
   Mustmatch(password: any, conformPassword: any) {
     return (formRegister: FormGroup) => {

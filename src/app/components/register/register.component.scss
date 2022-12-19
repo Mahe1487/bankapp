@@ -1,16 +1,32 @@
-.mystyles{
-    border:solid;
+.mystyles {
+    border: solid;
     border-color: lightcyan;
     border-radius: 10px;
     padding: 37px;
     background: rgb(169, 250, 216);
-}   
-// input{
-//     width: 250px;
-// }
-select{
+}
+
+.mycolor {
+    color: red;
+}
+
+label {
+    margin-left: 5px;
+}
+
+select {
     width: 250px;
 }
-textarea{
+
+textarea {
     height: 150px;
+}
+
+.hidearrow {
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
