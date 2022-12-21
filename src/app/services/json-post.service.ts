@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class JsonPostService {
 
-  url :string="http://localhost:3000/register/";
+  url :string="http://localhost:8080/BankApp";
   constructor(private http:HttpClient) { }
   
-  register(data:any): any{
-    return this.http.post<any>(this.url,data)
-    .pipe(map((res:any)=>{
-      return res;
-    }))
+  register(data:any): Observable<any>{
+    return this.http.post<any>("http://localhost:8080/BankApp/register",data)
+    // .pipe(map((res:any)=>{
+    //   return res;
+    // }))
   }
   
   getUser(email:any,password:any):any{

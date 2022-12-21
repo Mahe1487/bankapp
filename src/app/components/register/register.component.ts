@@ -23,9 +23,9 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,25}'))]),
       conformPassword: new FormControl('', [Validators.required, Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,25}'))]),
       email: new FormControl('', [Validators.email]),
-      mobile: new FormControl('', [Validators.required]),
-      aadhar: new FormControl('', [Validators.required]),
-      panCard: new FormControl('', [Validators.required]),
+      mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+      aadhar: new FormControl('', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]),
+      panCard: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       terms: new FormControl('', [Validators.required]),
       permanentAddress: new FormControl('', [Validators.required]),
       accountType: new FormControl('', [Validators.required])
@@ -70,19 +70,24 @@ export class RegisterComponent implements OnInit {
     //   }, (err: any) =>{
     //     alert(err);
     //   });
-      
+
     //   // ,() => {
     //   //     alert("somthing wrong !... plese check ")
     //   //   }
-    this.jsonserver.register(this.userModelObj)
-      .subscribe(() => {
-        alert("user add successfully!...");
-        let ref = document.getElementById("cancel")
-        ref?.click();
-        this.formRegister.reset();
-      },() => {
-           alert("somthing wrong !... plese check ")
-         })
+
+    this.jsonserver.register(this.userModelObj).subscribe(
+      (res: any) => {
+
+      }, (err: any) => {
+        alert(err);
+      });
+
+    // .subscribe(() => {
+    //   alert("user add successfully!...");       
+    //   this.formRegister.reset();       
+    // },() => {
+    //      alert("somthing wrong !... plese check ")
+    //    })
   }
   Mustmatch(password: any, conformPassword: any) {
     return (formRegister: FormGroup) => {

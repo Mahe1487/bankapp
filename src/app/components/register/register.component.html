@@ -5,7 +5,7 @@
                 <div>
                     <h1 style="text-align: center;">Registration Form</h1>
                 </div>
-                <div class="col-7">
+                <div class="col-5">
                     <table>
                         <tr>
                             <th>
@@ -94,9 +94,9 @@
                             <th>
                                 <h4>Permanent Address</h4>&emsp;
                             </th>
-                            <td class="p-2"><input type="text" name="permanentAddress" style="height: 70px;"
+                            <td class="p-2"><textarea type="text" name="permanentAddress" style="height: 70px;"
                                     id="permanentAddress" class="form-control" formControlName="permanentAddress"
-                                    placeholder="Address" maxlength="1000"></td>
+                                    placeholder="Address"></textarea></td>
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['permanentAddress'].invalid && f['permanentAddress'].touched">
@@ -107,7 +107,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-5">
+                <div class="col-7">
                     <table>
                         <tr>
                             <th>
@@ -148,8 +148,8 @@
                             <th>
                                 <h4>Email</h4>
                             </th>
-                            <td class="p-2"><input type="email" required name="email" id="email" formControlName="email"
-                                    class="form-control" placeholder="Email"></td>
+                            <td class="p-2"><input type="text" required name="email" id="email" formControlName="email"
+                                    class="form-control" placeholder="abc@example.com"></td>
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['email'].invalid && f['email'].touched">
@@ -164,12 +164,14 @@
                             </th>
                             <td class="p-2"><input type="text" maxlength="10" minlength="10" name="mobile" id="mobile"
                                     maxlength="10" minlength="10" class="form-control" formControlName="mobile"
-                                    placeholder="Mobile Number"></td>
+                                    placeholder="XXXXX XXXXX"></td>
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['mobile'].invalid && f['mobile'].touched">
                             <td>
                                 <span *ngIf="f['mobile'].getError('required')!=null">Mobile Number Required</span>
+                                <span *ngIf="f['aadhar'].getError('minlength')!=null">Length Must Be 10</span>
+                                <span *ngIf="f['aadhar'].getError('maxlength')!=null">Length Must Be 10</span>
                             </td>
                         </tr>
                         <tr>
@@ -178,13 +180,17 @@
                             </th>
                             <td class="p-2"><input type="text" maxlength="12" minlength="12" name="aadhar" id="aadhar"
                                     maxlength="12" minlength="12" class="form-control" formControlName="aadhar"
-                                    placeholder="Aadhar">
+                                    placeholder="XXXX XXXX XXXX">
                             </td>
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['aadhar'].invalid && f['aadhar'].touched">
                             <td>
                                 <span *ngIf="f['aadhar'].getError('required')!=null">Aadhar Card Number Required</span>
+                                <span *ngIf="f['aadhar'].getError('minlength')!=null">Aadhar Card Length Must Be
+                                    12</span>
+                                <span *ngIf="f['aadhar'].getError('maxlength')!=null">Aadhar Card Length Must Be
+                                    12</span>
                             </td>
                         </tr>
 
@@ -192,13 +198,15 @@
                             <th>
                                 <h4>PAN Card</h4>
                             </th>
-                            <td class="p-2"><input minlength="10" name="panCard" id="panCard" maxlength="10" type="text"
-                                    class="form-control" formControlName="panCard" placeholder="PAN Card Number"></td>
+                            <td class="p-2"><input type="text" minlength="10" name="panCard" id="panCard" maxlength="10"
+                                    class="form-control" formControlName="panCard" placeholder="XXXXX0123X"></td>
 
                         </tr>
                         <tr class="mycolor" *ngIf="f['panCard'].invalid && f['panCard'].touched">
                             <td>
                                 <span *ngIf="f['panCard'].getError('required')!=null">PAN Card Required</span>
+                                <span *ngIf="f['aadhar'].getError('minlength')!=null">Length Must Be 10</span>
+                                <span *ngIf="f['aadhar'].getError('maxlength')!=null">Length Must Be 10</span>
                             </td>
                         </tr>
                         <tr>
@@ -225,7 +233,7 @@
                                 <h4>Agree Terms & Condetions</h4>&emsp;
                             </th>
                             <td class="p-2 ml-auto"><input type="checkbox" formControlName="terms" name="terms"
-                                    id="terms">
+                                    id="terms" value="accepted">
                             </td>
 
                         </tr>

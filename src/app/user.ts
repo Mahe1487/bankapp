@@ -1,16 +1,16 @@
 export class User {
-    mobile !:BigInteger;
+    mobile !:string;
     email !:string;
     firstName !:string;
     lastName !:string;
-    dob !:Date;
+    dob !:string;
     gender !:string;
     fatherName !:string;
     motherName !:string;
-    aadhar !:BigInteger;
-    panCard !:string;
+    aadhar !:string;
+    panCard!: string;
     password !:string; 
     permanentAddress !:string;
     accountType !:string;
-    terms !:boolean; 
+    terms !:string; 
 }
