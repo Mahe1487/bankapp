@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { JsonPostService } from 'src/app/services/json-post.service';
 import { User } from 'src/app/user';
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   userModelObj: User = new User();
   formRegister !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private jsonserver: JsonPostService) {
+  constructor(private formBuilder: FormBuilder, private jsonserver: JsonPostService, private router: Router) {
     this.formRegister = this.formBuilder.group({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -77,7 +78,7 @@ export class RegisterComponent implements OnInit {
 
     this.jsonserver.register(this.userModelObj).subscribe(
       (res: any) => {
-
+        this.router.navigate(['/login']);
       }, (err: any) => {
         alert(err);
       });
